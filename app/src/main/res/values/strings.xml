@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Final Exam</string>
+    <string name="menu_simple_list1">Simple List 1</string>
+    <string name="menu_simple_list2">Simple List 2</string>
+</resources>
