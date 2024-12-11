@@ -44,19 +44,25 @@ public class CustomAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.custom_list_item, parent, false);
             holder = new ViewHolder();
-            holder.imageView = convertView.findViewById(R.id.custom_image);
-            holder.textView = convertView.findViewById(R.id.custom_description);
+            holder.imageView = convertView.findViewById(R.id.imageView);
+            holder.nameTextView = convertView.findViewById(R.id.nameTextView);
+            holder.ageTextView = convertView.findViewById(R.id.ageTextView);
+            holder.jobTextView = convertView.findViewById(R.id.jobTextView);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        // Устанавливаем текст
-        holder.textView.setText(data.get(position).get("name"));
+        Map<String, String> item = data.get(position);
 
-        // Загружаем изображение из папки assets/images
-        String imageName = data.get(position).get("image");
-        try (InputStream inputStream = context.getAssets().open("images/" + imageName)) {
+        // Установка текста
+        holder.nameTextView.setText(item.get("name"));
+        holder.ageTextView.setText(item.get("age"));
+        holder.jobTextView.setText(item.get("job"));
+
+        // Загрузка изображения из assets
+        try {
+            InputStream inputStream = context.getAssets().open("images/" + item.get("image"));
             Drawable drawable = Drawable.createFromStream(inputStream, null);
             holder.imageView.setImageDrawable(drawable);
         } catch (IOException e) {
@@ -68,6 +74,8 @@ public class CustomAdapter extends BaseAdapter {
 
     static class ViewHolder {
         ImageView imageView;
-        TextView textView;
+        TextView nameTextView;
+        TextView ageTextView;
+        TextView jobTextView;
     }
 }

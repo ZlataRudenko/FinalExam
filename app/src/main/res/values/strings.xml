@@ -2,4 +2,17 @@
     <string name="app_name">Final Exam</string>
     <string name="menu_simple_list1">Simple List 1</string>
     <string name="menu_simple_list2">Simple List 2</string>
+
+    <string-array name="color">
+        <item>White</item>
+        <item>Blue</item>
+        <item>Green</item>
+    </string-array>
+
+    <string-array name="color_values">
+        <item>white</item>
+        <item>blue</item>
+        <item>green</item>
+    </string-array>
+
 </resources>

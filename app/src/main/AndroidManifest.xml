@@ -15,7 +15,7 @@
 
         <activity
             android:name=".CustomListActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SimpleList2Activity"
             android:exported="false" />

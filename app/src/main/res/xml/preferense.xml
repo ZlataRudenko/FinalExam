@@ -1,0 +1,8 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:key="background_color"
+        android:title="Background Color"
+        android:entries="@array/color"
+        android:entryValues="@array/color_values"
+        android:defaultValue="white" />
+</PreferenceScreen>
