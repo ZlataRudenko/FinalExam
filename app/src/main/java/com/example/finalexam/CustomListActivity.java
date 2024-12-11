@@ -30,7 +30,7 @@ public class CustomListActivity extends AppCompatActivity {
         }
 
         // Настройка ListView
-        ListView listView = findViewById(R.id.custom_list_view);
+        ListView listView = findViewById(R.id.custom_List_view);
         CustomAdapter adapter = new CustomAdapter(this, data);
         listView.setAdapter(adapter);
     }

@@ -44,25 +44,23 @@ public class CustomAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.custom_list_item, parent, false);
             holder = new ViewHolder();
-            holder.imageView = convertView.findViewById(R.id.imageView);
-            holder.textView = convertView.findViewById(R.id.textView);
+            holder.imageView = convertView.findViewById(R.id.custom_image);
+            holder.textView = convertView.findViewById(R.id.custom_description);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        // Установка текста
+        // Устанавливаем текст
         holder.textView.setText(data.get(position).get("name"));
 
-        // Загрузка изображения
-        try {
-            String imageName = data.get(position).get("image"); // Ключ "image" для имени файла
-            InputStream inputStream = context.getAssets().open(imageName);
+        // Загружаем изображение из папки assets/images
+        String imageName = data.get(position).get("image");
+        try (InputStream inputStream = context.getAssets().open("images/" + imageName)) {
             Drawable drawable = Drawable.createFromStream(inputStream, null);
             holder.imageView.setImageDrawable(drawable);
         } catch (IOException e) {
             e.printStackTrace();
-            holder.imageView.setImageResource(R.drawable.default_image); // Ресурс по умолчанию
         }
 
         return convertView;
